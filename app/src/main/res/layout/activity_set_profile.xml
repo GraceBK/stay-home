@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetProfileActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:elevation="8dp"
+                android:src="@drawable/ic_footer"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <EditText
+                    android:id="@+id/field_firstname"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:maxLines="1"
+                    android:maxLength="30"
+                    android:background="@drawable/rounded_border_edittext"
+                    android:padding="10dp"
+                    android:hint="Prénom"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <EditText
+                    android:id="@+id/field_lastname"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:maxLines="1"
+                    android:maxLength="30"
+                    android:background="@drawable/rounded_border_edittext"
+                    android:padding="10dp"
+                    android:hint="Nom"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/birthday"
+                        android:background="@drawable/bg_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Né(e) le ?"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:id="@+id/field_birthday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:text="Date de naissance"
+                        tools:ignore="RtlSymmetry" />
+                    <!--DatePicker
+                        android:id="@+id/field_birthday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:datePickerMode="spinner"
+                        android:minDate="01/01/1920"
+                        android:calendarViewShown="false"
+                        android:text="Date de naissance" /-->
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <EditText
+                    android:id="@+id/field_lieunaissance"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:maxLines="1"
+                    android:maxLength="30"
+                    android:background="@drawable/rounded_border_edittext"
+                    android:padding="10dp"
+                    android:hint="Lieu de naissance"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <EditText
+                    android:id="@+id/field_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:maxLines="1"
+                    android:maxLength="30"
+                    android:background="@drawable/rounded_border_edittext"
+                    android:padding="10dp"
+                    android:hint="Adresse"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/field_town"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:maxLength="30"
+                        android:background="@drawable/rounded_border_edittext"
+                        android:padding="10dp"
+                        android:hint="Ville"/>
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="0dp"/>
+
+                    <EditText
+                        android:id="@+id/field_zipcode"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:maxLength="30"
+                        android:background="@drawable/rounded_border_edittext"
+                        android:padding="10dp"
+                        android:hint="Code Postal"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <Button
+                    android:id="@+id/save_info"
+                    android:background="@drawable/bg_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Sauvegarder"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                tools:layout_editor_absoluteX="9dp"
+                tools:layout_editor_absoluteY="26dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="⚠️ Rappel:\n les données saisies sont stockées exclusivement sur votre téléphone.\n Aucune information n'est collectée"
+                    android:textColor="@color/colorAccent"
+                    android:textAllCaps="false"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

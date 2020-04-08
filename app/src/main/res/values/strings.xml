@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Mon Attestation</string>
+    <string name="logo">Logo</string>
+    <string name="version">v 1.0.0</string>
+
+    <string name="preference_file_key">com.grace.covid.app_by_iolabs</string>
+    <string name="pref_key_firstname">firstname</string>
+    <string name="pref_key_lastname">lastname</string>
+    <string name="pref_key_birthday">birthday</string>
+    <string name="pref_key_lieunaissance">lieunaissance</string>
+    <string name="pref_key_address">address</string>
+    <string name="pref_key_town">town</string>
+    <string name="pref_key_zipcode">zipcode</string>
+</resources>

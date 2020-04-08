@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2060A7</color>
+    <color name="colorPrimaryDark">#2060A7</color>
+    <color name="colorAccent">#2060A7</color>
+
+    <color name="white">#FFF</color>
+    <color name="black">#000</color>
+    <color name="gray300">#E0E0E0</color>
+    <color name="gray500">#9E9E9E</color>
+
+    <color name="red">#F00</color>
+
+    <color name="navigationViewColor">#6495ED</color>
+</resources>
