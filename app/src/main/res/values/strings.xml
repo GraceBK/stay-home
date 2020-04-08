@@ -3,7 +3,7 @@
     <string name="logo">Logo</string>
     <string name="version">v 1.0.0</string>
 
-    <string name="preference_file_key">com.grace.covid.app_by_iolabs</string>
+    <string name="preference_file_key">com.covid.app_by_iolabs</string>
     <string name="pref_key_firstname">firstname</string>
     <string name="pref_key_lastname">lastname</string>
     <string name="pref_key_birthday">birthday</string>
@@ -11,4 +11,24 @@
     <string name="pref_key_address">address</string>
     <string name="pref_key_town">town</string>
     <string name="pref_key_zipcode">zipcode</string>
+    <string name="town">Ville</string>
+    <string name="zipcode">Code Postal</string>
+    <string name="rappel">⚠️ Rappel:\n les données saisies sont stockées exclusivement sur votre téléphone.\n Aucune information n\'est collectée</string>
+    <string name="address">Adresse</string>
+    <string name="born_town">Lieu de naissance</string>
+    <string name="lastname">Nom</string>
+    <string name="firstname">Prénom</string>
+    <string name="rappel1">👍 Remplir le formulaire c\'est plus facile que tu le pense il te suffit de cliquer ici 👇</string>
+    <string name="btn_my_info">Je remplir une fois</string>
+    <string name="btn_website_official">Site officiel</string>
+    <string name="btn_show_pdf">Afficher La déclaration</string>
+    <string name="btn_exit_home">Je veux sortir</string>
+    <string name="btn_show_qrcode">Afficher QR-Code</string>
+
+    <string name="btn_create_attestation">Générer une attestation</string>
+    <string name="btn_cancel">Annuler</string>
+    <string name="btn_ok">Annuler</string>
+    <string name="msg_no_attestation">Vous n\'avez pas d\'attestion</string>
+
+
 </resources>

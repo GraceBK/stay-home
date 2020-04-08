@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /-->
 
     <application
         android:allowBackup="true"
@@ -16,12 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Transparent"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m">
+        tools:targetApi="m"
+        tools:ignore="AllowBackup">
         <activity
             android:name=".PdfViewerActivity"
             android:theme="@style/AppTheme"
             android:parentActivityName=".MainActivity"/>
-        <!-- android:name="android.support.v4.content.FileProvider" -->
 
         <activity
             android:name=".ChooseJustificationActivity"
@@ -32,7 +31,8 @@
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"
             android:theme="@style/AppTheme"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/Theme.SplashScreen">
@@ -46,7 +46,8 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"
-            android:theme="@style/Theme.NoActionBar" />
+            android:theme="@style/Theme.NoActionBar"
+            tools:ignore="LockedOrientationActivity" />
     </application>
 
 </manifest>

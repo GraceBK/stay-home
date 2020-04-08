@@ -1,33 +1,22 @@
 package com.grace.covid;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.DownloadManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
-import android.webkit.CookieManager;
 import android.webkit.DownloadListener;
-import android.webkit.URLUtil;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
-import java.util.Objects;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ChooseJustificationActivity extends AppCompatActivity {
 
@@ -39,15 +28,6 @@ public class ChooseJustificationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_justification);
-
-        // Runtime External storage permission for saving download files
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-                Log.d("permission", "permission denied to WRITE_EXTERNAL_STORAGE - requesting it");
-                String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-                requestPermissions(permissions, 1);
-            }
-        }*/
 
         sharedPreferences = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 
@@ -154,22 +134,6 @@ public class ChooseJustificationActivity extends AppCompatActivity {
             public void onDownloadStart(String s/*url*/, String s1/*userAgent*/,
                                         String s2/*contentDisposition*/, String s3/*mimeType*/, long l/*contentLength*/) {
                 webView.loadUrl(JavaScriptInterface.getBase64StringFromBlobUrl(s));
-                /*DownloadManager.Request request = new DownloadManager.Request(Uri.parse(s.replace("blob:", "")));
-                request.setMimeType(s3);
-                String cookies = CookieManager.getInstance().getCookie(s);
-                request.addRequestHeader("cookie", cookies);
-                request.addRequestHeader("User-Agent", s1);
-                request.setDescription("Downloading File...");
-                request.setTitle(URLUtil.guessFileName(s, s2, s3));
-                request.allowScanningByMediaScanner();
-                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                request.setDestinationInExternalPublicDir(
-                        Environment.DIRECTORY_DOWNLOADS, URLUtil.guessFileName(s, s2, s3)
-                );
-                DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-                assert downloadManager != null;
-                downloadManager.enqueue(request);
-                Toast.makeText(getApplicationContext(), "Downloading File", Toast.LENGTH_LONG).show();*/
             }
         });
         webView.addJavascriptInterface(new JavaScriptInterface(this), "Android");

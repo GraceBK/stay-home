@@ -2,10 +2,8 @@ package com.grace.covid;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -29,22 +27,18 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    LinearLayout btnQRCode;
-    LinearLayout btnGoOut;
-    LinearLayout btnSetProfile;
-    LinearLayout btnSeePDF;
-    LinearLayout btnGoOfficialWebSite;
-    Bitmap bitmap;
-    ImageView ccc;
-
-    SharedPreferences sharedPreferences;
+    private LinearLayout btnQRCode;
+    private LinearLayout btnGoOut;
+    private LinearLayout btnSetProfile;
+    private LinearLayout btnSeePDF;
+    private LinearLayout btnGoOfficialWebSite;
+    private Bitmap bitmap;
+    private ImageView ccc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        sharedPreferences = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 
         initViewById();
         setDataField();
@@ -71,9 +65,8 @@ public class MainActivity extends AppCompatActivity {
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setColor(0XFF000000);
         // Loading an existing PDF document
-        String filePath = getApplicationContext().getExternalFilesDir(
-                "attestation") + "/Attestation_de_deplacement_derogatoire.pdf";
-        File file = new File(filePath);
+        File file = new File(getApplicationContext().getExternalFilesDir(
+                "attestation") + "/Attestation_de_deplacement_derogatoire.pdf");
         if (file.exists()) {
             // Instantiating the PDFRenderer class
             PdfRenderer renderer = null;
@@ -82,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
             // Rendering an image from the PDF document
             assert renderer != null;
             PdfRenderer.Page page = renderer.openPage(1);
@@ -99,9 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
             bitmap = Bitmap.createBitmap(bitmap, 0, 0, 400, 400);
             saveQRCode(bitmap);
-            //ccc.setImageBitmap(bitmap);
-
-
             // Closing the document
             page.close();
             renderer.close();
@@ -121,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                     ccc = view1.findViewById(R.id.cccccc);
                     ccc.setImageBitmap(bitmap);
                     builder.setView(view1)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            .setPositiveButton(getString(R.string.btn_ok), new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     dialogInterface.dismiss();
@@ -132,15 +121,15 @@ public class MainActivity extends AppCompatActivity {
                     alertDialog.show();
                 } else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.CustomAlertDialog);
-                    builder.setMessage("Vous n'avez pas d'attestion");
-                    builder.setPositiveButton("Générer une attestation", new DialogInterface.OnClickListener() {
+                    builder.setMessage(getString(R.string.msg_no_attestation));
+                    builder.setPositiveButton(getString(R.string.btn_create_attestation), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.dismiss();
                             startActivity(new Intent(MainActivity.this, ChooseJustificationActivity.class));
                         }
                     });
-                    builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+                    builder.setNegativeButton(getString(R.string.btn_cancel), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.cancel();
@@ -177,15 +166,15 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, PdfViewerActivity.class));
                 } else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.CustomAlertDialog);
-                    builder.setMessage("Vous n'avez pas d'attestion");
-                    builder.setPositiveButton("Générer une attestation", new DialogInterface.OnClickListener() {
+                    builder.setMessage(getString(R.string.msg_no_attestation));
+                    builder.setPositiveButton(getString(R.string.btn_create_attestation), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.dismiss();
                             startActivity(new Intent(MainActivity.this, ChooseJustificationActivity.class));
                         }
                     });
-                    builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+                    builder.setNegativeButton(getString(R.string.btn_cancel), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.cancel();

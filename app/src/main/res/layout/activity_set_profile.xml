@@ -25,7 +25,8 @@
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 android:elevation="8dp"
-                android:src="@drawable/ic_footer"/>
+                android:src="@drawable/ic_footer"
+                tools:ignore="ContentDescription" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -40,7 +41,9 @@
                     android:maxLength="30"
                     android:background="@drawable/rounded_border_edittext"
                     android:padding="10dp"
-                    android:hint="Prénom"/>
+                    android:hint="@string/firstname"
+                    tools:ignore="Autofill"
+                    android:inputType="text" />
 
                 <View
                     android:layout_width="match_parent"
@@ -54,7 +57,9 @@
                     android:maxLength="30"
                     android:background="@drawable/rounded_border_edittext"
                     android:padding="10dp"
-                    android:hint="Nom"/>
+                    android:hint="@string/lastname"
+                    android:inputType="text"
+                    tools:ignore="Autofill" />
 
                 <View
                     android:layout_width="match_parent"
@@ -71,22 +76,15 @@
                         android:layout_height="wrap_content"
                         android:text="Né(e) le ?"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/white"
+                        tools:ignore="HardcodedText" />
                     <TextView
                         android:id="@+id/field_birthday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="16dp"
                         android:text="Date de naissance"
-                        tools:ignore="RtlSymmetry" />
-                    <!--DatePicker
-                        android:id="@+id/field_birthday"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:datePickerMode="spinner"
-                        android:minDate="01/01/1920"
-                        android:calendarViewShown="false"
-                        android:text="Date de naissance" /-->
+                        tools:ignore="HardcodedText,RtlSymmetry"/>
                 </LinearLayout>
 
                 <View
@@ -101,7 +99,9 @@
                     android:maxLength="30"
                     android:background="@drawable/rounded_border_edittext"
                     android:padding="10dp"
-                    android:hint="Lieu de naissance"/>
+                    android:hint="@string/born_town"
+                    tools:ignore="Autofill"
+                    android:inputType="text" />
 
                 <View
                     android:layout_width="match_parent"
@@ -115,7 +115,9 @@
                     android:maxLength="30"
                     android:background="@drawable/rounded_border_edittext"
                     android:padding="10dp"
-                    android:hint="Adresse"/>
+                    android:hint="@string/address"
+                    tools:ignore="Autofill"
+                    android:inputType="text" />
 
                 <View
                     android:layout_width="match_parent"
@@ -135,7 +137,9 @@
                         android:maxLength="30"
                         android:background="@drawable/rounded_border_edittext"
                         android:padding="10dp"
-                        android:hint="Ville"/>
+                        android:hint="@string/town"
+                        android:inputType="text"
+                        tools:ignore="Autofill" />
 
                     <View
                         android:layout_width="10dp"
@@ -150,7 +154,8 @@
                         android:maxLength="30"
                         android:background="@drawable/rounded_border_edittext"
                         android:padding="10dp"
-                        android:hint="Code Postal"/>
+                        android:hint="@string/zipcode"
+                        tools:ignore="Autofill" />
 
                 </LinearLayout>
 
@@ -165,7 +170,8 @@
                     android:layout_height="50dp"
                     android:text="Sauvegarder"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    tools:ignore="HardcodedText"/>
             </LinearLayout>
 
             <LinearLayout
@@ -182,18 +188,12 @@
                     android:layout_marginStart="10dp"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
-                    android:text="⚠️ Rappel:\n les données saisies sont stockées exclusivement sur votre téléphone.\n Aucune information n'est collectée"
+                    android:text="@string/rappel"
                     android:textColor="@color/colorAccent"
                     android:textAllCaps="false"
                     android:textSize="15sp"
                     android:textStyle="bold" />
-
             </LinearLayout>
-
         </LinearLayout>
-
-
-
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

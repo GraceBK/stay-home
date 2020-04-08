@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -17,22 +18,24 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SetProfileActivity extends AppCompatActivity {
 
-    EditText firstname;
-    EditText lastname;
-    TextView birthday;
-    EditText lieunaissance;
-    EditText address;
-    EditText town;
-    EditText zipcode;
-    Button btnBirthday;
-    Button btnSave;
+    private static final String TAG = SplashScreen.class.getName();
+
+    private EditText firstname;
+    private EditText lastname;
+    private TextView birthday;
+    private EditText lieunaissance;
+    private EditText address;
+    private EditText town;
+    private EditText zipcode;
+    private Button btnBirthday;
+    private Button btnSave;
     private SimpleDateFormat dateFormat;
-    private Calendar calendar;
     private DatePickerDialog datePickerDialog;
 
     private SharedPreferences sharedPreferences;
@@ -40,9 +43,9 @@ public class SetProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(TAG, "On create activity");
         setContentView(R.layout.activity_set_profile);
-        getSupportActionBar().setElevation(0);
-
+        Objects.requireNonNull(getSupportActionBar()).setElevation(0);
 
         sharedPreferences = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 
@@ -169,9 +172,6 @@ public class SetProfileActivity extends AppCompatActivity {
             zipcode.setText(_zipcode);
         }
 
-
-
-        calendar = Calendar.getInstance();
         dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH);
 
         Calendar newCalendar = Calendar.getInstance();
