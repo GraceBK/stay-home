@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/cccccc"
+        android:id="@+id/popup_qrcode"
         android:gravity="center|center_vertical"
         android:layout_gravity="center|center_vertical"
         android:scaleType="centerCrop"

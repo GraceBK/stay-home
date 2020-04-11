@@ -1,4 +1,4 @@
-package com.grace.covid;
+package com.attestation.app;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout btnSeePDF;
     private LinearLayout btnGoOfficialWebSite;
     private Bitmap bitmap;
-    private ImageView ccc;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,8 +108,8 @@ public class MainActivity extends AppCompatActivity {
                 if (qr_code) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.CustomAlertDialog);
                     @SuppressLint("InflateParams") View view1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.sample_popup_qrcode, null);
-                    ccc = view1.findViewById(R.id.cccccc);
-                    ccc.setImageBitmap(bitmap);
+                    imageView = view1.findViewById(R.id.popup_qrcode);
+                    imageView.setImageBitmap(bitmap);
                     builder.setView(view1)
                             .setPositiveButton(getString(R.string.btn_ok), new DialogInterface.OnClickListener() {
                                 @Override
@@ -164,13 +164,8 @@ public class MainActivity extends AppCompatActivity {
                 File file = new File(getApplicationContext().getExternalFilesDir(
                         "attestation") + "/Attestation_de_deplacement_derogatoire.pdf");
                 if (file.exists()) {
-                    //startActivity(new Intent(MainActivity.this, PdfViewerActivity.class));
-                    file = new File(getApplicationContext().getExternalFilesDir(
-                            "attestation") + "/Attestation_de_deplacement_derogatoire.pdf");
-
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
                     Uri uri = FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName()+".fileprovider", file);
-
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setDataAndType(uri, "application/pdf");
                     intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                     startActivity(intent);
@@ -199,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
         btnGoOfficialWebSite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri uri = Uri.parse("https://media.interieur.gouv.fr/deplacement-covid-19/");
+                Uri uri = Uri.parse(getString(R.string.url_interieur_gouv));
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }
@@ -216,6 +211,6 @@ public class MainActivity extends AppCompatActivity {
         btnSeePDF = findViewById(R.id.btn_see_pdf);
         btnGoOfficialWebSite = findViewById(R.id.btn_website);
 
-        ccc = findViewById(R.id.cccccc);
+        imageView = findViewById(R.id.popup_qrcode);
     }
 }

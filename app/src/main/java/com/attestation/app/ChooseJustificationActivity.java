@@ -1,4 +1,4 @@
-package com.grace.covid;
+package com.attestation.app;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -32,7 +32,7 @@ public class ChooseJustificationActivity extends AppCompatActivity {
         sharedPreferences = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 
         webView = findViewById(R.id.webview);
-        webView.getSettings().setUserAgentString("COVID_19");
+        webView.getSettings().setUserAgentString("ATTESTATION");
 
         // Enable Javascript
         WebSettings webSettings = webView.getSettings();
@@ -125,7 +125,7 @@ public class ChooseJustificationActivity extends AppCompatActivity {
             // il rappelle les pages en caches
             webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         }
-        webView.loadUrl("https://media.interieur.gouv.fr/deplacement-covid-19/");
+        webView.loadUrl(getString(R.string.url_interieur_gouv));
 
 
         // handle downloading

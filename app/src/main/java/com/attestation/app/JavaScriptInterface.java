@@ -1,4 +1,4 @@
-package com.grace.covid;
+package com.attestation.app;
 
 import android.app.Activity;
 import android.content.Context;

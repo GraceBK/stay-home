@@ -1,4 +1,4 @@
-package com.grace.covid;
+package com.attestation.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 

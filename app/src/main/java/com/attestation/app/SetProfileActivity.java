@@ -1,7 +1,8 @@
-package com.grace.covid;
+package com.attestation.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -66,8 +68,15 @@ public class SetProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveDataInPreference();
+                hideKeyboard(view);
             }
         });
+    }
+
+    private void hideKeyboard(View view) {
+        InputMethodManager imm = (InputMethodManager) getApplicationContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        assert imm != null;
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     private boolean isValideDate(String date) {
@@ -118,8 +127,6 @@ public class SetProfileActivity extends AppCompatActivity {
                 && !TextUtils.isEmpty(lieunaissance.getText()) && !TextUtils.isEmpty(address.getText())
                 && !TextUtils.isEmpty(town.getText()) && !TextUtils.isEmpty(zipcode.getText())
                 && isValideDate(birthday.getText().toString())) {
-            Toast.makeText(this, "Enregistre avec succes", Toast.LENGTH_LONG).show();
-
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString(getString(R.string.pref_key_firstname), firstname.getText().toString());
             editor.putString(getString(R.string.pref_key_lastname), lastname.getText().toString());
@@ -129,6 +136,7 @@ public class SetProfileActivity extends AppCompatActivity {
             editor.putString(getString(R.string.pref_key_town), town.getText().toString());
             editor.putString(getString(R.string.pref_key_zipcode), zipcode.getText().toString());
             editor.apply();
+            Toast.makeText(this, "Enregistre avec succes", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, "Remplir tout les champs", Toast.LENGTH_LONG).show();
         }

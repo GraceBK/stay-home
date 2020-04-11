@@ -3,7 +3,7 @@
     <string name="logo">Logo</string>
     <string name="version">v 1.0.0</string>
 
-    <string name="preference_file_key">com.covid.app_by_iolabs</string>
+    <string name="preference_file_key">com.addd.app_by_iolabs</string>
     <string name="pref_key_firstname">firstname</string>
     <string name="pref_key_lastname">lastname</string>
     <string name="pref_key_birthday">birthday</string>
@@ -29,6 +29,8 @@
     <string name="btn_cancel">Annuler</string>
     <string name="btn_ok">Annuler</string>
     <string name="msg_no_attestation">Vous n\'avez pas d\'attestion</string>
+
+    <string name="url_interieur_gouv">https://media.interieur.gouv.fr/deplacement-covid-19/</string>
 
 
 </resources>

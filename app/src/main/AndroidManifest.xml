@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.grace.covid">
+    package="com.attestation.app">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -29,7 +29,7 @@
         </provider-->
 
         <provider
-            android:name=".PrivateFileProvider"
+            android:name="com.attestation.app.PrivateFileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:grantUriPermissions="true"
             android:exported="false">
@@ -37,25 +37,20 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepaths" />
         </provider>
-        
-        <activity
-            android:name=".PdfViewerActivity"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".MainActivity"/>
 
         <activity
-            android:name=".ChooseJustificationActivity"
+            android:name="com.attestation.app.ChooseJustificationActivity"
             android:theme="@style/AppTheme"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName="com.attestation.app.MainActivity"/>
         <activity
-            android:name=".SetProfileActivity"
+            android:name="com.attestation.app.SetProfileActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"
             android:theme="@style/AppTheme"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.attestation.app.MainActivity"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".SplashScreen"
+            android:name="com.attestation.app.SplashScreen"
             android:theme="@style/Theme.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -64,7 +59,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.attestation.app.MainActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"
             android:theme="@style/Theme.NoActionBar"
