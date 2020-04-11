@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -163,7 +164,16 @@ public class MainActivity extends AppCompatActivity {
                 File file = new File(getApplicationContext().getExternalFilesDir(
                         "attestation") + "/Attestation_de_deplacement_derogatoire.pdf");
                 if (file.exists()) {
-                    startActivity(new Intent(MainActivity.this, PdfViewerActivity.class));
+                    //startActivity(new Intent(MainActivity.this, PdfViewerActivity.class));
+                    file = new File(getApplicationContext().getExternalFilesDir(
+                            "attestation") + "/Attestation_de_deplacement_derogatoire.pdf");
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    Uri uri = FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName()+".fileprovider", file);
+
+                    intent.setDataAndType(uri, "application/pdf");
+                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    startActivity(intent);
                 } else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.CustomAlertDialog);
                     builder.setMessage(getString(R.string.msg_no_attestation));
