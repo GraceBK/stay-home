@@ -20,7 +20,7 @@
     <string name="firstname">Prénom</string>
     <string name="rappel1">👍 Remplir le formulaire c\'est plus facile que tu le pense il te suffit de cliquer ici 👇</string>
     <string name="btn_my_info">Je remplir une fois</string>
-    <string name="btn_website_official">Site officiel</string>
+    <string name="btn_website_official">Ouvrir dans un navigateur</string>
     <string name="btn_show_pdf">Afficher La déclaration</string>
     <string name="btn_exit_home">Je veux sortir</string>
     <string name="btn_show_qrcode">Afficher QR-Code</string>

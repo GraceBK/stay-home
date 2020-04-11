@@ -27,7 +27,7 @@
         <item name="android:windowDisablePreview">true</item>
         <item name="windowNoTitle">true</item>
 
-        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/white</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
 
         <item name="android:textColor">@color/black</item>
@@ -42,7 +42,7 @@
         <item name="android:windowBackground">@color/white</item>
         <item name="windowNoTitle">true</item>
 
-        <item name="android:statusBarColor">#2060A7</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">#2060A7</item>
 
         <item name="android:actionBarStyle">@style/Theme.AppCompat.ActionBar</item>
     </style>
